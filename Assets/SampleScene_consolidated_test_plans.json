@@ -1,0 +1,120 @@
+{
+  "taskUnits": [
+    {
+      "actionUnits": [
+        {
+          "type": "Trigger",
+          "source_object_name": "Plane (1)",
+          "triggerring_time": 5.2,
+          "source_object_fileID": 127885129,
+          "condition": "MonoBehaviour (scene id: 127885130) uses script GUID 9cde80f2fe6fe6e47b57eb962721c06f (class OtherLaneController). Plane (1) has a MeshCollider (id: 127885132) set as IsTrigger=1 and no Rigidbody, so OnTriggerEnter requires another Rigidbody Collider with tag 'Ball' to enter this trigger. On trigger, after 5 seconds it checks the tag == 'Ball', reads BallSoundController.peso and pesoEnKgs from the colliding object, destroys that ball, then instantiates bolaPrefab (guid: 1be75124d3e50ad4997a90e0d8d1fe74, fileID: 424594858964415916) at aparicionBola (fileID: 165335085), sets BallSoundController fields on the new ball and calls changePeso(), then applies an impulse force via Rigidbody.AddForce.",
+          "triggerring_events": [],
+          "triggerred_events": []
+        }
+      ]
+    },
+    {
+      "actionUnits": [
+        {
+          "type": "Trigger",
+          "source_object_name": "Plane (2)",
+          "triggerring_time": 5.1,
+          "source_object_fileID": 1620417930,
+          "condition": "Plane (2) has a MeshCollider (id:1620417933) with m_IsTrigger=1 and no Rigidbody. It has a MonoBehaviour OtherLaneController (id:1620417931) whose script matches guid 9cde80f2fe6fe6e47b57eb962721c06f and serialized fields aparicionBola(fileID:165335085) and bolaPrefab(guid:1be75124d3e50ad4997a90e0d8d1fe74). We want to trigger the OnTriggerEnter event by entering this trigger with a collider that has a Rigidbody, is tagged 'Ball', and has BallSoundController with fields peso(float) and pesoEnKgs(int). Expected behavior: the coroutine waits 5s, destroys the incoming Ball, then GeneraBola sets peso/pesoEnKgs on bolaPrefab's BallSoundController, calls changePeso(), instantiates bolaPrefab at aparicionBola, and applies AddForce(Vector3(1,0,0)*1.5, Impulse).",
+          "triggerring_events": [
+            {
+              "methodCallUnits": []
+            }
+          ]
+        },
+        {
+          "type": "Trigger",
+          "source_object_name": "Plane (2)",
+          "triggerring_time": 5.0,
+          "source_object_fileID": 1620417930,
+          "condition": "Trigger OnTriggerEnter with a collider that does NOT have tag 'Ball' to cover the false branch of the condition. Expected: after 5s, no Destroy and no GeneraBola invocation.",
+          "triggerring_events": [
+            {
+              "methodCallUnits": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "actionUnits": [
+        {
+          "type": "Transform",
+          "source_object_name": "PosAparicionBola",
+          "source_object_fileID": 385680589,
+          "delta_position": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": -3.0
+          },
+          "target_rotation": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "target_scale": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "triggerring_events": [],
+          "triggerred_events": [],
+          "triggerring_time": 0.5
+        },
+        {
+          "type": "Trigger",
+          "source_object_name": "PosAparicionBola",
+          "triggerring_time": 0.1,
+          "source_object_fileID": 385680589,
+          "condition": "Manually call Mirar methods (script guid: 8817b2a8c34ba5d4d941beaf47d0be6f) to toggle canvas visibility. Expect: canvas.enabled becomes true (Mira) then false (Para).",
+          "triggerring_events": [
+            {
+              "methodCallUnits": [
+                {
+                  "script_fileID": 11500000,
+                  "method_name": "Mira",
+                  "parameter_fileID": []
+                }
+              ]
+            }
+          ],
+          "triggerred_events": [
+            {
+              "methodCallUnits": [
+                {
+                  "script_fileID": 11500000,
+                  "method_name": "Para",
+                  "parameter_fileID": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Trigger",
+          "source_object_name": "PosAparicionBola",
+          "triggerring_time": 0.05,
+          "source_object_fileID": 385680589,
+          "condition": "Force re-apply weight via BallSoundController.changePeso (script guid: 8fcde7f4195eca944bfe1e2addf5338a). Expect Rigidbody.mass = 0.7 and textoPeso text updates to '7KG'.",
+          "triggerring_events": [
+            {
+              "methodCallUnits": [
+                {
+                  "script_fileID": 11500000,
+                  "method_name": "changePeso",
+                  "parameter_fileID": []
+                }
+              ]
+            }
+          ],
+          "triggerred_events": []
+        }
+      ]
+    }
+  ]
+}
