@@ -1,0 +1,120 @@
+{
+  "taskUnits": [
+    {
+      "actionUnits": [
+        {
+          "type": "Trigger",
+          "source_object_name": "Plane (1)",
+          "triggerring_time": 5.1,
+          "source_object_fileID": 127885129,
+          "condition": "Exercise the physics event OnTriggerEnter(Collider other) on OtherLaneController (MonoBehaviour id 127885130, guid 9cde80f2fe6fe6e47b57eb962721c06f). Plane (1) has a MeshCollider (id 127885132) configured as isTrigger=1 and no Rigidbody, so a separate GameObject tagged \"Ball\" with a Rigidbody and a Collider must enter this trigger. After waiting 5 seconds (per coroutine), the script reads BallSoundController.peso and pesoEnKgs from the entering object, destroys it, and instantiates bolaPrefab (guid 1be75124d3e50ad4997a90e0d8d1fe74, fileID 424594858964415916) at aparicionBola (Transform fileID 165335085), then applies an impulse to the new ball.",
+          "triggerring_events": []
+        }
+      ]
+    },
+    {
+      "actionUnits": [
+        {
+          "type": "Trigger",
+          "source_object_name": "Plane (2)",
+          "triggerring_time": 5.1,
+          "source_object_fileID": 1620417930,
+          "condition": "Physics trigger: a Rigidbody + Collider GameObject tagged 'Ball' enters Plane (2)'s MeshCollider (isTrigger=1, convex=1). This invokes OtherLaneController.OnTriggerEnter (MonoBehaviour id=1620417931, script guid=9cde80f2fe6fe6e47b57eb962721c06f) which is configured in the scene with aparicionBola=fileID 165335085 and bolaPrefab guid=1be75124d3e50ad4997a90e0d8d1fe74. After a 5s delay, it reads BallSoundController.peso and pesoEnKgs from the entering object, destroys it, then instantiates bolaPrefab at aparicionBola and applies an impulse.",
+          "triggerring_events": []
+        },
+        {
+          "type": "Trigger",
+          "source_object_name": "Plane (2)",
+          "triggerring_time": 5.1,
+          "source_object_fileID": 1620417930,
+          "condition": "Branch coverage: a Collider that is NOT tagged 'Ball' enters Plane (2)'s trigger. OtherLaneController.OnTriggerEnter (id=1620417931, guid=9cde80f2fe6fe6e47b57eb962721c06f) waits 5s and performs no action (tests the tag != 'Ball' path).",
+          "triggerring_events": []
+        }
+      ]
+    },
+    {
+      "actionUnits": [
+        {
+          "type": "Transform",
+          "source_object_name": "PosAparicionBola",
+          "source_object_fileID": 385680589,
+          "delta_position": {
+            "x": 0.2,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "target_rotation": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "target_scale": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "triggerring_events": [],
+          "triggerred_events": [],
+          "triggerring_time": 0.5
+        },
+        {
+          "type": "Trigger",
+          "source_object_name": "PosAparicionBola",
+          "triggerring_time": 0.1,
+          "source_object_fileID": 385680589,
+          "condition": "Call Mirar.Mira() on PosAparicionBola to enable the attached Canvas. MonoBehaviour GUID: 8817b2a8c34ba5d4d941beaf47d0be6f; scene fields: canvas=fileID 3689742487867136667, camaraAMirar set at Start to Camera.main. Note: using GameObject fileID due to missing PrefabInstance fileID.",
+          "triggerring_events": [
+            {
+              "methodCallUnits": [
+                {
+                  "script_fileID": 0,
+                  "method_name": "Mira",
+                  "parameter_fileID": []
+                }
+              ]
+            }
+          ],
+          "triggerred_events": []
+        },
+        {
+          "type": "Trigger",
+          "source_object_name": "PosAparicionBola",
+          "triggerring_time": 0.1,
+          "source_object_fileID": 385680589,
+          "condition": "Call Mirar.Para() on PosAparicionBola to disable the attached Canvas. MonoBehaviour GUID: 8817b2a8c34ba5d4d941beaf47d0be6f; same component as above. This ensures both enable/disable paths execute.",
+          "triggerring_events": [
+            {
+              "methodCallUnits": [
+                {
+                  "script_fileID": 0,
+                  "method_name": "Para",
+                  "parameter_fileID": []
+                }
+              ]
+            }
+          ],
+          "triggerred_events": []
+        },
+        {
+          "type": "Trigger",
+          "source_object_name": "PosAparicionBola",
+          "triggerring_time": 0.1,
+          "source_object_fileID": 385680589,
+          "condition": "Re-invoke BallSoundController.changePeso() to verify public method behavior updates Rigidbody.mass and TextMeshPro text. MonoBehaviour GUID: 8fcde7f4195eca944bfe1e2addf5338a; fields in scene: peso=0.7, pesoEnKgs=7, textoPeso=fileID 4278895081965267523.",
+          "triggerring_events": [
+            {
+              "methodCallUnits": [
+                {
+                  "script_fileID": 0,
+                  "method_name": "changePeso",
+                  "parameter_fileID": []
+                }
+              ]
+            }
+          ],
+          "triggerred_events": []
+        }
+      ]
+    }
+  ]
+}
